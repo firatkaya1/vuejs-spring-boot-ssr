@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'hubotsans';
+    src: url('../../public/font/hubotsans/Hubot-Sans-Medium.otf');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'hubotsans';
+    src: url('../../public/font/hubotsans/Hubot-Sans-SemiBold.otf');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'hubotsans';
+    src: url('../../public/font/hubotsans/Hubot-Sans-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'hubotsans';
+    src: url('../../public/font/hubotsans/Hubot-Sans-ExtraLight.otf');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'hubotsans';
+    src: url('../../public/font/hubotsans/Hubot-Sans-Light.otf');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'hubotsans';
+    src: url('../../public/font/hubotsans/Hubot-Sans-Bold.otf');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'hubotsans';
+    src: url('../../public/font/hubotsans/Hubot-Sans-ExtraBold.otf');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'hubotsans';
+    src: url('../../public/font/hubotsans/Hubot-Sans-Black.otf');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}

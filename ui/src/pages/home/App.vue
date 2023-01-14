@@ -1,12 +1,13 @@
 <template>
+  <main class="container">
   <div class="home"> 
-    <ul> 
-      <li> liste 1 </li>  
-      <li> yeni değer </li>
-      <li> yeni değe123r </li>
-
-    </ul> 
+    
+      <button>Button</button>
   </div>
+
+  </main>
+
+
 </template>
 
 <script>
