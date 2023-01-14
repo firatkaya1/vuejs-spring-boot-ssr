@@ -11,3 +11,11 @@ export default {
   name: "About",
 };
 </script>
+
+
+<style scoped>
+.home {
+  background-color: 'yellow';
+  
+}
+</style>

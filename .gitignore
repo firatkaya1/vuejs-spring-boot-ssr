@@ -1,3 +1,7 @@
 /node_modules
 /dist
 .idea
+ui/dist
+
+ui//node_modules/
+ui/node

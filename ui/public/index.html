@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title><%= htmlWebpackPlugin.options.title %></title>
    <link rel="stylesheet"  data-th-href="@{/css/<%= htmlWebpackPlugin.options.assetFileName %>.css}">
-    <script data-th-src="@{/js/chunk-vendors.js}"></script>
-    <script data-th-src="@{/js/<%= htmlWebpackPlugin.options.assetFileName %>.js}"></script>
+    <script defer data-th-src="@{/js/chunk-vendors.js}"></script>
+    <script defer data-th-src="@{/js/<%= htmlWebpackPlugin.options.assetFileName %>.js}"></script>
 
-    <script defer src="/js/chunk-vendors.js"></script>
-    <script defer src="/js/<%= htmlWebpackPlugin.options.assetFileName %>.js"></script>
   </head>
   <body>
     
@@ -21,10 +19,7 @@
 
     </div>
 
-    <script>
-
-
-    </script>
+    <script th:replace="~{fragments/react-scripts :: bootstrapReactPage('Owl.OwlHome',${props})}"></script>
 
   </body>
 </html>

@@ -2,10 +2,9 @@
   <div class="home"> 
     <ul> 
       <li> liste 1 </li>  
-      <li> liste 2 </li>  
-      <li> liste 3 </li>  
-      <li> liste 4 </li>  
-      <li> liste 5 </li>  
+      <li> yeni değer </li>
+      <li> yeni değe123r </li>
+
     </ul> 
   </div>
 </template>
@@ -16,3 +15,10 @@ export default {
   name: "Home",
 };
 </script>
+
+<style scoped>
+.home {
+  background-color: 'red';
+  
+}
+</style>
