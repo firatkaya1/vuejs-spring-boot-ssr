@@ -37,15 +37,43 @@ Basit bir Spring boot uygulaması geliştirdiğimizde oldukça basit bir file st
 |   |   ├── home/index.html
 |   |   ├── login/index.html
 │   │   ├── about/index.html
-|   ├── src/main/resource/template 
+|   ├── src/main/resource/static 
+|   |   ├── css/
+|   |   |   ├── home.css
+|   |   |   ├── login.css
+|   |   |   ├── about.css
+|   |   ├── fonts/
+|   |   |   ├── fontA/fontA-fonts
+|   |   |   ├── fontB/fontB-fonts
+|   |   ├── js/
+|   |   |   ├── home/home.bundle.js
+|   |   |   ├── login/login.bundle.js
+|   |   |   ├── about/about.bundle.js
+|   |   ├── images/
 ├── .gradle
 ├── build
-├── README.md
-├── package.json
-└── .gitignore
 ```
 
+Arayüz projesinin file structure'da aşağıdaki gibidir. 
 
+
+
+```bash
+├── src
+│   ├── pages
+│   │   ├── home
+│   │   |   ├── App.vue
+│   │   |   ├── main.js
+│   │   ├── about
+│   │   |   ├── App.vue
+│   │   |   ├── main.js
+│   │   ├── login
+│   │   |   ├── App.vue
+│   │   |   ├── main.js
+├── dist (or build)
+├── public (or build)
+├── node_modules
+```
 
 
 
