@@ -161,7 +161,34 @@ export default {
 
 İşte bu kadar. Bu sayede sayfa yüklenirken tekrar bir istek atmadan gerekli data ile birlikte sayfayı daha hızlı yüklenebilir hale getirebiliriz. 
 
+![ts drawio](https://user-images.githubusercontent.com/47042445/212561057-72129c46-f44a-4678-a582-3063bddf7dc5.png)
 
+### Hot Reload
+
+
+Geliştirme sürecinde daha hızlı ilerleyebilmek için hot reload özelliğinden faydalanmanız gerekmektedir. Bunun için öncelikle package.json dosyanıza aşağıdaki komutu ekleyin. Her bir değişiklikte .JS dosyanız tekrar build edilip spring boot uygulamasındaki path'in altına oluşturulacaktır.
+
+```json
+ "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "watch": "webpack --watch --progress --mode development", // add 
+    "lint": "vue-cli-service lint"
+  },
+```
+Spring boot tarafındaki uygulamanızı da her defasında yeniden başlatmamak için application.properties dosyasınıza aşağıdaki değerleri ekleyin. 
+
+```properties
+spring.thymeleaf.cache=false
+spring.web.resources.chain.cache=true
+spring.web.resources.cache.period=0
+spring.web.resources.chain.strategy.content.enabled=true
+spring.web.resources.chain.strategy.content.paths=/**
+```
+
+Intellij IDEA'da aynı zaman da  **Edit Configuration** alanında bulunan **Running Application Update Policy** yazan yerde aşağıdaki gibi değişiklik yapılması önerilir. 
+
+![Screenshot from 2023-01-15 21-58-22](https://user-images.githubusercontent.com/47042445/212561398-87ca7f75-48de-41f8-9497-52a2fcc350a1.png)
 
 
 
