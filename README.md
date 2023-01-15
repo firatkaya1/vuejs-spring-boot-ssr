@@ -77,7 +77,92 @@ Arayüz projesinin file structure'da aşağıdaki gibidir.
 
 
 
+Fark edebildiğiniz gibi Single Page Application(SPA) uygulamarında sadece tek bir root component bulunur. Fakat bizim elimizde her sayfa için bir App.vue dosyamız bulunmaktadır. Bunun nedeni her sayfa için yeni bir Vue instance'i tanıtmış olmamızdır. 
+
+
+Proje için ui/ dosyasının altında bir webpack.config.js dosyası bulunmaktadır. Bu dosya aracılığıyla başlangıç noktasını verdiğimiz sayfaları dolaşıp bunları birer Javascript bundle haline getirmekte ve bunları da spring boot uygulamasında bulunan **static/** klasörünün altına eklemektedir.
+
+ Basit bir template ile spring boot tarafında bir sayfayı nasıl render edebileceğinizi aşağıdaki şekilde bulabilirsiniz. 
+
+**HomeController.java**
+```java
+@Controller
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+public class HomeController {
+
+    private final ArticleRepository articleRepository;
+
+    @GetMapping(value = {"/","/home"})
+    public String home(Model model) {
+        model.addAttribute("props", Map.of("articles",articleRepository.findAll()));
+        return "home/index.html";
+    }
+```
+
+**templates/home/index.html**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home 1212</title>
+
+    <link rel="stylesheet"  data-th-href="@{/css/home.bundle.css}">
+
+    <script defer data-th-src="@{/js/home/home.bundle.js}"></script>
+    <script defer data-th-src="@{/js/shared/shared.bundle.js}"></script>
+    <script defer data-th-src="@{/js/vendors/vendors.bundle.js}"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+   <script defer async th:inline="javascript">
+     PageComponent = /*[[(${props})]]*/ {}
+   </script>
+</body>
+</html>
+```
+Burada aynı zamanda server-side tarafından JS vermek istediğiniz verileri de aktarım yapabilirsiniz. Ben burada elimde bulunan articles isimli listeyi vermek istedim. VueJS tarafında bu listeyi almak ve listelemek istediğinizde aşağıdaki gibi bir formatı takip edebilirsiniz. 
+
+**main.js** 
+```js
+import { createApp } from "vue";
+import App from "./App.vue";
+
+createApp(App,PageComponent)
+.mount("#app");
+```
+
+
+**App.vue** 
+```vue
+<template>
+  <main class="container">
+    {{articles}}
+  </main>
+
+</template>
+
+<script>
+import Footer from '../..//shared/components/Footer.vue';
+import Menu from '../../shared/components/Menu.vue';
+
+export default {
+  name: "Home",
+  components: {  Menu, Footer },
+   props: {
+    articles:Array
+   },
+};
+</script>
+
+```
+
+İşte bu kadar. Bu sayede sayfa yüklenirken tekrar bir istek atmadan gerekli data ile birlikte sayfayı daha hızlı yüklenebilir hale getirebiliriz. 
 
 
 
- 
+
+
+
